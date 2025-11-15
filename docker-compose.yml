@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  servidoreureka:
+    # 'build: .' le dice a Docker Compose que busque el Dockerfile
+    # en el mismo directorio donde está el archivo docker-compose.yml.
+    # **Asegúrate de colocar tu Dockerfile en ese directorio.**
+    build: servidorRestauranteFondaD
+    mem_limit: 512m
+    # El puerto 8761 es el configurado para tu Eureka Server
+    ports:
+      - "8761:8761"
+    
+    # Reiniciar siempre el contenedor en caso de fallo
+    restart: always
+    
+    # Se eliminó la sección 'volumes' ya que no gestionas archivos
+    # Se eliminó la sección 'depends_on' ya que no hay una BD de la cual depender
+
+# Se eliminó la definición del servicio 'proyecto_hoteles' (MySQL)
+# Se eliminó la sección 'volumes' global
